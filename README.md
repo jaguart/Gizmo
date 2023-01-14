@@ -1,7 +1,7 @@
 NAME
 ====
 
-Gizmo - blah blah blah
+Gizmo - A collection of Jeff's tools and kit for daily devops.
 
 SYNOPSIS
 ========
@@ -13,7 +13,7 @@ use Gizmo;
 DESCRIPTION
 ===========
 
-Gizmo is ...
+Gizmo is a work in progress. 
 
 AUTHOR
 ======

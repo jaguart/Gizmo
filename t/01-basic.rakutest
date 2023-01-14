@@ -1,6 +1,7 @@
 use Test;
-use Gizmo;
 
-pass "replace me";
+plan 1;
+
+use-ok 'Gizmo';
 
 done-testing;

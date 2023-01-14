@@ -6,7 +6,7 @@
   ],
   "depends": [
   ],
-  "description": "blah blah blah",
+  "description": "A collection of Jeff's tools and kit for daily devops.",
   "license": "Artistic-2.0",
   "name": "Gizmo",
   "perl": "6.d",

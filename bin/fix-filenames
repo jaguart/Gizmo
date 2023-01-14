@@ -1,0 +1,12 @@
+#!/usr/bin/env raku
+
+use Kaolin::File :find, :mv-file;
+
+
+.Str.say for find('.', :recursive, :type<file>, :skip(/ '.precomp/' || '.git/' || '.idea/' /));
+
+mv-file( $_, ($_.Str.subst(/\-a$/,'')).IO ) for find('.', :recursive, :type<file>, :skip(/ '.precomp/' || '.git/' || '.idea/' /));
+.Str.say for find('.', :recursive, :type<file>, :skip(/ '.precomp/' || '.git/' || '.idea/' /));
+
+
+#$dir.dump;

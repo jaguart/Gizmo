@@ -17,7 +17,8 @@ jobs:
           - macos-latest
           - windows-latest
         raku-version:
-          - 'latest'
+          #- 'latest' <- windows TAP install unreliable
+          - '2022.07'
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -29,4 +30,4 @@ jobs:
       - name: Install App::Prove6
         run: zef install --/test App::Prove6
       - name: Run Tests
-        run: prove6 -I. t
+        run: prove6 -I.,lib t

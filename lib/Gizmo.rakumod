@@ -1,3 +1,5 @@
+use v6;
+
 unit class Gizmo;
 
 
@@ -5,7 +7,7 @@ unit class Gizmo;
 
 =head1 NAME
 
-Gizmo - blah blah blah
+Gizmo - A collection of Jeff's tools and kit for daily devops.
 
 =head1 SYNOPSIS
 
@@ -17,7 +19,7 @@ use Gizmo;
 
 =head1 DESCRIPTION
 
-Gizmo is ...
+Gizmo is a work in progress.
 
 =head1 AUTHOR
 

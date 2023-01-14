@@ -1,2 +1,5 @@
 .precomp/
 /Gizmo-*
+,*
+.idea/*
+
