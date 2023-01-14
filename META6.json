@@ -1,0 +1,24 @@
+{
+  "authors": [
+    "Jeff Armstrong"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "blah blah blah",
+  "license": "Artistic-2.0",
+  "name": "Gizmo",
+  "perl": "6.d",
+  "provides": {
+    "Gizmo": "lib/Gizmo.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
