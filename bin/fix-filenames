@@ -8,62 +8,35 @@ my %*SUB-MAIN-OPTS =
 ;
 
 #-------------------------------------------------------------------------------
-#| fix-filenames - lowercase, only alphanumeric, hypen and dot allowed.
-#| -/L to retain case, -R to recurse. Options are uppercase.
+#| fix basenames to lowercase, alpha-numeric and hyphen only
 multi sub MAIN (
     Str $dir = '.',
-    Bool :$rename       = False,    #= perform the rename
-    Bool :R($recursive) = False,    #= recurse into subfolders
-    Bool :L($lc)        = True,     #= force to lowercase
+    Bool :$fix          = False,    #= rename files to fix basenames
+    Bool :r($recursive) = False,    #= recurse into subfolders
+    Bool :l($lc)        = True,     #= force filenames to lowercase
+    Bool :v($verbose)   = False,    #= verbose
 ) {
 
+    my $finder = $dir.IO but (Kaolin::File::Finder, Kaolin::File::Namer);
+
     my %count;
-
-    for find(
-        $dir,
-        :$recursive,
-        :type<file>,
-        :skip(rx/ '.precomp/' || '.git/' || '.idea/' /)
-    ) -> $file {
-
-        %count<checked>++;
-
-        my $basename    = $file.basename;
-        my $extension   = $file.extension;
-        $basename       = $basename.chop($extension.chars+1);
-
-        if $lc {
-            $basename   = $basename.lc;
-            $extension  = $extension.lc;
-        }
-
-        # any spooky -> hypen
-        # multi-hypens -> single hypen
-        # leadning / trailing hypen -> removed
-        $basename ~~ s:g/<-[A..Z a..z 0..9 . -]>+/-/;
-        $basename ~~ s:g/'-' ** 2..*/-/;
-        $basename ~~ s:g/ ^ '-' || '-' $//;
-
-        $extension ~~ s:g/<-[A..Z a..z 0..9 . -]>+/-/;
-        $extension ~~ s:g/'-' ** 2..*/-/;
-        $extension ~~ s:g/ ^ '-' || '-' $//;
-
-        $basename ~= '.' ~ $extension;
-
-        if $file.basename eq $basename {
+    for $finder.find(:$recursive) -> $f {
+        if $f.basename eq $f.basename-clean {
             %count<ok>++;
+            say 'ok: ', $f.basename if $verbose;
         }
-        elsif $rename {
-            %count<renamed>++;
-            say mv-file( $file, $file.sibling( $basename ) ).Str;
+        elsif $fix {
+            %count<fixed>++;
+            say 'fixed: ', $f.fix-basename.basename;
+
         }
         else {
             %count<bad>++;
-            say $file.Str;
-       }
-    }
+            say 'bad: ', $f.basename, ' -> ', $f.basename-clean;
 
-    say %count;
+        }
+    }
+    say $*PROGRAM.basename, ': ', $finder.Str, ' ', %count;
 
 }
 
