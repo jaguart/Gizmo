@@ -28,12 +28,10 @@ multi sub MAIN (
         elsif $fix {
             %count<fixed>++;
             say 'fixed: ', $f.fix-basename.basename;
-
         }
         else {
             %count<bad>++;
             say 'bad: ', $f.basename, ' -> ', $f.basename-clean;
-
         }
     }
     say $*PROGRAM.basename, ': ', $finder.Str, ' ', %count;
