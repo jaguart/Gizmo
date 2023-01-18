@@ -7,7 +7,7 @@ unit class Gizmo;
 
 =head1 NAME
 
-Gizmo - A collection of Jeff's tools and kit for daily devops.
+Gizmo - Jeffs personal devops gadgets in Raku.
 
 =head1 SYNOPSIS
 
