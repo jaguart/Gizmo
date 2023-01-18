@@ -13,7 +13,7 @@ use Gizmo;
 DESCRIPTION
 ===========
 
-Gizmo is a work in progress. 
+Gizmo is a work in progress.
 
 AUTHOR
 ======
