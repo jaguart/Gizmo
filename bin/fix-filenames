@@ -1,11 +1,9 @@
 #!/usr/bin/env raku
 use v6;
 
-use Kaolin::File :find, :mv-file;
+my %*SUB-MAIN-OPTS = :named-anywhere, :bundling;
 
-my %*SUB-MAIN-OPTS =
-  :named-anywhere,    # named options anywhere
-;
+use Kaolin::File :find, :mv-file;
 
 #-------------------------------------------------------------------------------
 #| fix basenames to lowercase, alpha-numeric and hyphen only
