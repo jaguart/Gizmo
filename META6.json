@@ -6,7 +6,7 @@
   ],
   "depends": [
   ],
-  "description": "A collection of Jeff's tools and kit for daily devops.",
+  "description": "Jeffs personal devops gadgets in Raku",
   "license": "Artistic-2.0",
   "name": "Gizmo",
   "perl": "6.d",
@@ -15,7 +15,7 @@
   },
   "resources": [
   ],
-  "source-url": "",
+  "source-url": "https://github.com/jaguart/Gizmo.git",
   "tags": [
   ],
   "test-depends": [
